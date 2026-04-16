@@ -9,6 +9,8 @@ import com.isil.controller.IAccountController;
 import com.isil.dto.AccountDTO;
 import com.isil.service.IAccountService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountControllerImpl implements IAccountController {
@@ -32,14 +34,14 @@ public class AccountControllerImpl implements IAccountController {
 
     @Override
     @PostMapping
-    public ResponseEntity<AccountDTO> createAccount(@RequestBody AccountDTO accountDTO) {
+    public ResponseEntity<AccountDTO> createAccount(@Valid @RequestBody AccountDTO accountDTO) {
         AccountDTO createdAccount = accountService.createAccount(accountDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdAccount);
     }
 
     @Override
     @PutMapping("/{id}")
-    public ResponseEntity<AccountDTO> updateAccount(@PathVariable Long id, @RequestBody AccountDTO accountDTO) {
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable Long id, @Valid @RequestBody AccountDTO accountDTO) {
         AccountDTO updatedAccount = accountService.updateAccount(id, accountDTO);
         return ResponseEntity.ok(updatedAccount);
     }
