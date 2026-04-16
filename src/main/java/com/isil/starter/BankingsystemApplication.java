@@ -6,8 +6,8 @@ import org.springframework.boot.persistence.autoconfigure.EntityScan;
 
 @SpringBootApplication
 @EntityScan(basePackages = { "com.isil" })
-// @ComponentScan(basePackages = { "com.isil" })
-// @EnableJpaRepositories(basePackages = { "com.isil" })
+@org.springframework.context.annotation.ComponentScan(basePackages = { "com.isil" })
+@org.springframework.data.jpa.repository.config.EnableJpaRepositories(basePackages = { "com.isil" })
 public class BankingsystemApplication {
 
 	public static void main(String[] args) {
