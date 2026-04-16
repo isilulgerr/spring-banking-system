@@ -28,8 +28,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
+        ex.printStackTrace(); // Also print to console for easier debugging
         Map<String, String> body = new HashMap<>();
-        body.put("message", "A system error occured.");
+        body.put("message", "A system error occured: " + ex.getMessage());
         return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR); // 500
     }
 }
