@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class UserDTO {
-    @NotNull(message = "User ID is required")
     private Long id;
     @NotNull(message = "Username is required")
     private String username;
